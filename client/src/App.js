@@ -23,22 +23,6 @@ class App extends Component {
         deployedNetwork && deployedNetwork.address,
       );
 
-      <form className="pure-form pure-form-stacked">
-  <fieldset>
-    <label htmlFor="storage">Storage Amount</label>
-    <input id="storage" type="number" ref={c => { this.storageAmountInput = c }} />
-    <button
-      className="pure-button"
-      onClick={(e) => {
-        e.preventDefault();
-        this.addToSimpleStorage()
-      }}
-    >
-      Set Storage
-    </button>
-  </fieldset>
-</form>
-
       // Set web3, accounts, and contract to the state, and then proceed with an
       // example of interacting with the contract's methods.
      

@@ -29,6 +29,22 @@
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
+
+    <form className="pure-form pure-form-stacked">
+      <fieldset>
+        <label htmlFor="storage">Storage Amount</label>
+        <input id="storage" type="number" ref={c => { this.storageAmountInput = c }} />
+        <button
+          className="pure-button"
+          onClick={(e) => {
+            e.preventDefault();
+            this.addToSimpleStorage()
+          }}
+        >
+          Set Storage
+        </button>
+      </fieldset>
+    </form>
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
@@ -39,5 +55,6 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    
   </body>
 </html>
