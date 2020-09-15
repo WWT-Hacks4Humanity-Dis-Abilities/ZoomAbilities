@@ -23,10 +23,40 @@ class App extends Component {
         deployedNetwork && deployedNetwork.address,
       );
 
+      <form className="pure-form pure-form-stacked">
+  <fieldset>
+    <label htmlFor="storage">Storage Amount</label>
+    <input id="storage" type="number" ref={c => { this.storageAmountInput = c }} />
+    <button
+      className="pure-button"
+      onClick={(e) => {
+        e.preventDefault();
+        this.addToSimpleStorage()
+      }}
+    >
+      Set Storage
+    </button>
+  </fieldset>
+</form>
+
       // Set web3, accounts, and contract to the state, and then proceed with an
       // example of interacting with the contract's methods.
+     
+      getWeb3
+      .then(results => {
+        this.setState({
+          web3: results.web3
+        })
+      
+        // Instantiate contract once web3 provided.
+        this.instantiateContract()
+      })
+      .catch(() => {
+        console.log('Error finding web3.')
+      })
       this.setState({ web3, accounts, contract: instance }, this.runExample);
     } catch (error) {
+      
       // Catch any errors for any of the above operations.
       alert(
         `Failed to load web3, accounts, or contract. Check console for details.`,
